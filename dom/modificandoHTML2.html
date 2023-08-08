@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <p>Texto Inicial</p>
+    </div>
+    <script>
+        const div = document.querySelector('div')// dei query na div completa
+        div.innerHTML = 'Texto Alterado'// .innerHTML = alterei o texto da div
+        // div.outerHTML = 'Texto Alterado' // .outerHTML = pouco usado para remover tds os elementos da div
+
+        div.insertAdjacentHTML('beforebegin', '<p>antes do inicio</p>')
+        div.insertAdjacentHTML('afterbegin', '<p>depois inicio<.p>')
+        div.insertAdjacentHTML('beforeend', '</p>antes do fim')
+        div.insertAdjacentHTML('afterend', '</p>depois do fim')
+        // nao tao usados mas aprender.
+
+        //somente texto (sem tag)
+        console.log(div.innerText)// pega somente os textos sem <p>
+    </script>
+</body>
+
+</html>

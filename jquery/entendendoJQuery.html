@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Entendendo jQuery</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Entendendo jQuery</h1>
+    <div>1</div>
+    <div>2</div>
+
+    <script>
+        $('div').hide(5000).show(5000).fadeOut(5000)// channing
+        console.log($('div').get(1))// seleciona apenas uma div
+        console.log($.isEmptyObject({ nome: null }))// se tiver vazio true, se n false
+        console.log(jQuery.inArray(3, [1, 2, 3]))// localiza qual array o 3 ta
+        
+        $.fn.fundoVerde = function() {// criando uma função jquery
+            this.css('background-color', 'green')
+            return this
+        }
+
+        $('body').fundoVerde().fadeOut(1000)
+    </script>
+</body>

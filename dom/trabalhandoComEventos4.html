@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #04</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1>
+    <form name="pesquisa" action="http://www.google.com.br/search">
+        <input type="text" name="q" placeholder="Digite o termo...">
+        <select name="hl">
+                <option value="pt-br">Português (Brasil)</option>
+                <option value="en-us">Inglês (Americano)</option>
+            </select>
+        <button wm-submit>Pesquisar</button>
+    </form>
+    <script>
+        // const submit = document.querySelector('[wm-submit]')
+        // submit.onclick = function(e) {// fazendo o click um evento através da função
+        //     e.preventDefault()// esta evitando Default o click
+
+        //     const form = e.target.parentNode// dando nome aos bois e deixando claro que esta pegando os dados do 
+        //     const formData = new FormData(form)// formulario, e criando formData tem os dados do form
+        //     formData.append('ajax', true)// adiciona uma nova informação ao formData
+        //     console.log(formData.get('q'))// verifica o valor
+        //     console.log(formData.has('hl'))// verifica se há campo
+
+        //     for (let dado of formData) {// retorna os anteriores
+        //         console.log(dado)
+        //     }}
+
+        const form = document.forms[0] // faz a mesma coisa que anterior mas mais simples
+        form.onsubmit = function(e) {
+            e.preventDefault()
+
+            const form = e.target
+            const formData = new FormData(form)
+            formData.append('ajax', true)
+            console.log(formData.get('q'))
+            console.log(formData.has('hl'))
+
+            for (let dado of formData) {
+                console.log(dado)
+            }}
+    </script>
+</body>

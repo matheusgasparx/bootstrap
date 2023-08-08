@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>              
+        document.querySelector('#primeiro').classList.add('destaque')
+            // .querySelector = pega apenas o primeiro mesmo tendo mais
+        const selecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+            // ..querySelectorAll = pega o seletor e retorna em um nodelist
+        const deselecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+        
+        selecionar('div') // nesse caso todos ficam verdes
+        
+        deselecionar('*') // nenhum fica verde * = seletor universal
+        selecionar('.terceiro.ultimo') // seleciona somente os que tiver com o mesmo elemento nome
+        
+        deselecionar('*')
+        selecionar(':not(#primeiro)') // seleciona todos que não tiverem primeiro - :not() = pseudoClasse
+
+        deselecionar('*')
+        selecionar(':nth-child(1)') // seleciona apenas OS PRIMEIROS do body e da div
+
+        deselecionar('*')
+        selecionar('div:nth-of-type(1)') // inserindo div seleciona apenas o primeiro da div, podia tbm ser body:nth
+
+        deselecionar('*')
+        selecionar('[wb-attrib]') // nesse caso seleciona o atributo personalizado, que pode ser tbm inserido
+    </script>
+</body>
+</html>

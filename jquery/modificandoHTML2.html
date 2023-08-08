@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #02</h1>
+    <div id='div1'>1</div>
+    <div id='div2'>2</div>
+    <div id='div3'>3</div>
+    <p class='numero'>4</p>
+    <p class='numero'>5</p>
+
+    <script>
+        $('#div1').append(', 2')// é adicionado na div
+        $('#div1').prepend('0, ')// é antecipado na div
+
+        $('<span>, 3</span>').appendTo('#div1')// appendTo adiciona na div
+        $('<span>-1, </span>').prependTo('#div1')// prependTo antecipa na div
+
+        $('#div2').before('<p>antes do 2</p>')// adiciona antes do <p> 2
+        $('#div2').after('<p>depois do 2</p>')// adiciona depois do <p> 3
+
+        $('<p>antes do 3</p>').insertBefore('#div3')// adiciona antes da div3
+        $('<p>depois do 3</p>').insertAfter('#div3')// adiciona depois da div3
+
+        //$('p.numero').wrap('<div>')           // adiciona atraves do p.numero
+        $('p.numero').wrapAll('<div id="div4">')// cria uma div com id no lugar do p, juntos
+        $("#div4").empty()// esvazia a div4 
+        $('#div3, #div4').prev().remove()// pega o p antes da div3 e div 4 .remove
+
+        //$('<div>Substituto</div>').replaceAll('body > p')     // substitui em todos os p do body a div
+        //$('body > p').replaceWith('<div>Substituto2</div>')   // no p do body é substituido pela div
+        $('body > p').replaceWith(function() {
+            return $('<div>').html($(this).html())
+        }) //retorna um elemento criado.this na chamada html. mantendo o conteudo dentro da div
+        // mais flexivel, pode se adicionar .append .pretend
+    </script>
+</body>

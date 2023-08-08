@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>// getElementyById =>                   // .add = adiciona, no caso uma classe 
+        document.getElementById('primeiro').classList.add('destaque')
+                            // passa o nome da tag e obtem os elementos
+        const divs = document.getElementsByTagName('div') // uma lista
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+    // pegando os elementos da divs trans em array
+    // forEach percorre os elementos (e) e remove a classe destaque
+                                   // OU
+        const divsArray = [...divs]
+                    // operador =  ... espalha os elemntos pra usar .reduce .map por ex
+        divsArray.forEach(e.classList.add('Destaque'))
+                                    // .add adiciona classe
+                                            // getElementsCN  retorna um html colletion, nao array
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+        for(let e of ultimosElementos) { // se tiver so 1 elemento, retorna so 1 elemento
+        e.classList.remove('destaque')} // remove o verde do ultimo elemento
+    </script>
+</body>
+</html>

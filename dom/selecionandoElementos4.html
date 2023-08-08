@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #04</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <p>Início</p>
+    </div>
+    <div>
+        <ul>
+            <li>Pedro</li>
+            <li>Ana</li>
+            <li>Bia</li>
+        </ul>
+    </div>
+    <div>
+        <p>Fim</p>
+    </div>
+    <script>
+        function log() {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log // dessa forma todos elementos se conectam ao console
+
+        const lista = document.querySelector('div ul')
+        lista.parentNode.log() // o .log só está feito assim por ter feito o function log anteriormente.
+        // acessa a div /\ // tambem pode se fazer console.log(lista.parentNode)
+        lista.childNodes.log() // dessa forma acessa o li
+
+        const primeiro = lista.firstChild
+        primeiro.log()// desssa forma pega o TEXT ja que é um primeiro elemento
+        primeiro.nextSibling.log()// dessa forma pega o elemento seguinte, no caso o LI
+
+        const ultimo = lista.lastChild
+        ultimo.log()// dessa forma pega o ultimo TEXT
+        ultimo.previousSibling.log()// dessa forma pega o elemento anterior ao ultimo
+        
+        lista.children.log()// dessa forma pega todos os li mas não vem como nodeList, e sim como HTML
+        lista.firstElementChild.log()// resgata o primeiro elemento da div especifico
+        lista.lastElementChild.log()// resgata o ultimo elemento da div especifico
+        lista.parentNode.previousElementSibling.log()// dessa forma pega a div anterior, por causa do parentNode
+        lista.parentNode.nextElementSibling.log()// dessa forma pega a proxima div, por causa do parentNode
+
+        document.querySelectorAll('div ul li').log()// pega de fato o que eu quero, evitando o uso anterior
+        // em nodeList /\
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!-- onclick="navegarEm5s(event)" nao interessante hardcode --> 
+        <a espera-um-pouco="5" href="https://google.com.br">Google</a>
+    </div>
+    <script>
+        function navegarEm5s(evento) {
+            evento.preventDefault()// atrasa o evento
+            console.log('saindo em 5s...')
+            setTimeout(() => {
+                const link = evento.target
+                window.location.href = link.href
+            }, 5000);                   // nesse caso atribui o evento.targe para uma const
+        }
+
+        // const a = document.querySelector('a')// nesse caso evita utilizar o onclick no html
+        // a.onclick = navegarEm5s              // menos hardcode, utilizar
+
+        const a = document.querySelector('[espera-um-pouco]')// nesse caso altera la no html mas nao é renderizado
+        a.onclick = navegarEm5s                // e explica bem q esta sendo tratado, hardcode mas mais claro
+    </script>
+</body>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritório"]')// usando #compras, se acessa mais rápido.
+        console.log('Elemento "ul"................')
+        console.log('childNodes', lista.childNodes)// retorna text li text li
+        console.log('destino', lista.destino)// nao acessa atraves de personalizada
+        console.log('getAttribute', lista.getAttribute('destino'))// assim acessa atraves de personalizada
+        console.log('hasAttribute', lista.hasAttribute('destino'))//true ele tem esse atributo no elmento utilizando has
+        lista.setAttribute('destino', 'empresa')// altera o atributo
+        lista.setAttribute('status', 'aberto')// inseri tributo
+        lista.removeAttribute('destino')// remove atributo
+        console.log(lista.dataset.urgencia)// cuidado com os data-
+        lista.dataset.urgencia = 4// assim altera para 4
+        console.log(lista.getAttribute('data-urgencia'))// ou pode se pegar assim
+
+        // cuidado
+        const label = document.querySelector('label')// nao é acessado, label = ul
+        console.log(label.for)// nao é acessado for não é identificador
+        console.log(label.htmlFor)// assim se acessa o for
+        console.log(label.getAttribute('for'))// ou assim
+    </script>
+</body>
+
+</html>

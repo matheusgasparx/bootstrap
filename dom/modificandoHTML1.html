@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        const body = document.querySelector('body') 
+
+        const div1 = document.createElement('div')// criando o elemento div
+        div1.classList.add('destaque')// adiciona a classe
+        div1.innerHTML = 'Primeiro'// adiciona o conteudo
+        
+        const div2 = document.createElement('div')
+        div2.setAttribute('wm-atributo', ' valor')// setando um atributo
+        div2.innerHTML = 'Segundo'
+
+        const p = document.createElement('p')// criando um atributo
+        p.innerHTML = 'Terceiro'
+        const div3 = document.createElement('div')// criando um elemento div
+        div3.appendChild(p)// appendChild = insere no ultimo filho no elemento
+
+        body.appendChild(div1)
+        body.appendChild(div2)
+        body.appendChild(div3)
+
+        const texto = document.createTextNode('Antes...')
+        div3.insertBefore(texto, div3.childNodes[0])// div elemento pai, text elemento filho, antes do elemento 0
+
+        const div4 = div3.cloneNode(true)// dessa forma clona o elemento
+        body.appendChild(div4)// adicionando o elemento
+        body.removeChild(div3)// remove o elemento que acabou que criou
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <script>
+        const item = document.querySelector('div')// selecionando a div
+        item.style.position = 'absolute'// posiciona o objeto absoluto
+
+        item.onmousemove = e => {
+            const item = e.target
+            item.style.cursor = 'move'
+            if (e.buttons) {// propriedade que muda de valor, se tiver click fica diferente de 0
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px`// se tiver clickado, top distancia do top
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px`// dessa forma mexe por toda a tela
+            }
+        }
+    </script>
+</body>

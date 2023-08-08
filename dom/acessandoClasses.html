@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Classes</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        Classes
+    </div>
+    <script>
+        const classes = document.querySelector('div').classList
+        // atraves do querySelector acessa a div
+        classes.add('destaque')// que esta presente no css
+        classes.remove('destaque')// remove o destaque do css
+        classes.toggle('destaque')// se existe ele remove, se nao tiver ele add
+        console.log(classes.contains('destaque'))// retorna true ele possui css
+        console.log(classes.length)// faz a leitura de quantas classes contem
+        classes.toggle('destaque')// no caso como removeu na 19, agora add
+        console.log(classes.length)// agora so tem 1
+
+        classes.add('destaque1')
+        classes.add('destaque2')
+        console.log(classes.length)// apesar de adicionar, como n existe nao é add
+
+        for (let c of classes) {
+            console.log(c)// dessa forma para acessar através de um laço
+        }
+
+        classes.forEach(c => console.log(c))// tambem pode ser feito forEach
+    </script>
+</body>
+
+</html>
