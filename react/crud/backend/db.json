@@ -1,0 +1,11 @@
+{ 
+    "users": [{
+        "id": 1,
+        "name": "Arthur Cesar",
+        "email": "arthurcesar@cod3r.com"      
+    }, {
+        "id": 2,
+        "name": "Maju Coutinho",
+        "email": "majucoutinho@redeglobo.com"
+    }]
+}

@@ -6,11 +6,11 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-    mode: modoDev ? 'development' : 'production',
-    entry: './src/index.js',
+    mode: modoDev ? 'development' : 'production', // a não tiver em produção, sera desenvolvedor
+    entry: './src/index.js', // pasta de entrada
     devServer: {
         contentBase: './build',
-        port: 9000,
+        port: 8080,
     },
     optimization: {
         minimizer: [
@@ -23,7 +23,7 @@ module.exports = {
         ]
     },
     output: {
-        filename: 'app.js',
+        filename: 'app.js', // pasta de saida
         path: __dirname + '/build'
     },
     plugins: [

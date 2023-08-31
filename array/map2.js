@@ -21,4 +21,4 @@ console.log(resultado)
 const preco = products => products.preco >= 2000
 const fragil = products => products.fragil // nesse caso ele já retorna se for true 
 
-console.log(produtos.filter(preco).filter(fragil))
+console.log(resultado.filter(preco).filter(fragil))
